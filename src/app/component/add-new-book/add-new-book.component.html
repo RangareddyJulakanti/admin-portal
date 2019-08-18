@@ -111,6 +111,22 @@
 				<br><br>
 				</mat-grid-tile>
 			</mat-grid-list>
+
+
+			
+			<mat-grid-list cols="4" rowHeight="60px">
+					<mat-grid-tile [colspan]="2" [rowspan]="1">
+							<button class="mat-primary" mat-raised-button type="submit">Add Book</button>
+					</mat-grid-tile>
+					<mat-grid-tile [colspan]="2" [rowspan]="1">
+						<a class="mat-warn" mat-raised-button routerLink="/">Cancel</a>
+					</mat-grid-tile>
+			</mat-grid-list>
+
+
 				</form>
+	</div>
+	<div class="row" [hidden]="!bookAdded">
+		<h3>Book added successfully!</h3>
 	</div>
 </div>
