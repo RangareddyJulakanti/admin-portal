@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginService } from 'src/app/service/login.service';
 import { Observable } from 'rxjs';
+import { Book } from 'src/app/model/Book';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   loginService: LoginService;
   invalidLogin: Boolean = false;
   loggedIn:Boolean= false;
-
+  bookAdded: boolean;
+  private newBook: Book=new Book();
   constructor(router: Router, builder: FormBuilder, loginService: LoginService) {
     this.router = router;
     this.builder = builder;
@@ -28,10 +30,6 @@ export class LoginComponent implements OnInit {
   loginCredentials = false;
   errorMessage = 'InvalidCredentials';
 
-
-
-  ngOnInit() {
-  }
   handleLogin() {
     console.log(this.userName)
     console.log(this.password)
@@ -47,6 +45,13 @@ export class LoginComponent implements OnInit {
       //this.router.navigate(['error'])
      }
    );
-    
+   
+  }
+  ngOnInit() {
+  	this.bookAdded=false;
+  	this.newBook.active=true;
+  	this.newBook.category="Management";
+  	this.newBook.language="english";
+  	this.newBook.format="paperback";
   }
 }

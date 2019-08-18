@@ -44,8 +44,6 @@ checkSession(): Observable<any> {
         'x-auth-token' : sessionStorage.getItem('xAuthToken')
       });
       return this.httpClient.get(url,{headers:headers});  
-    
-
 }
 isUserLoggedIn(){
   let user = sessionStorage.getItem('xAuthToken');
